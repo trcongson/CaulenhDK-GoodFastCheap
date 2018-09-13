@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tốt-Nhanh-Rẻ</title>
+   </head>
+<body>
+<div class="container">
+    <input type="checkbox" id="fast">
+    <label class="red" for="fast">FAST</label>
+
+    <input type="checkbox" id="good">
+    <label class="green" for="good">GOOD</label>
+
+    <input type="checkbox" id="cheap">
+    <label class="blue" for="cheap">CHEAP</label>
+</div>
+<script>
+    var checked = [];
+    [].forEach.call(document.querySelectorAll('input[type="checkbox"]'), function (checkbox) {
+        checkbox.addEventListener('change', function (e) {
+            if (checkbox.checked && checked.length === 2) {
+                var uncheckTarget = checked[Math.floor(Math.random() * checked.length)];
+                uncheckTarget.checked = false;
+            }
+            checked = document.querySelectorAll('input[type="checkbox"]:checked');
+        });
+    });
+
+
+</script>
+</body>
+</html>
